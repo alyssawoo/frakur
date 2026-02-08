@@ -18,12 +18,13 @@ html, body {
 
 .container {
   display: flex;
-  gap: 16px;
+  gap: 20px;
   width: 100%;
   box-sizing: border-box;
+  align-items: flex-start;
 }
 
-/* Stack vertically on small widths */
+/* Stack vertically when narrow */
 @media (max-width: 500px) {
   .container {
     flex-direction: column;
@@ -57,13 +58,10 @@ textarea:focus {
 
 .output {
   flex: 1;
-  font-size: 15px;
-  line-height: 1.5;
+  font-size: 16px;
+  line-height: 1.6;
   word-wrap: break-word;
-  padding: 6px 8px;
-  border: 1px solid #e5e5e5;
-  border-radius: 6px;
-  min-height: 36px;
+  padding-top: 6px; /* aligns visually with textarea text */
 }
 </style>
 </head>
@@ -99,7 +97,7 @@ function convertToFraktur(text) {
 input.addEventListener("input", () => {
   output.textContent = convertToFraktur(input.value);
 
-  // Auto-grow input
+  // Auto-grow input height
   input.style.height = "auto";
   input.style.height = input.scrollHeight + "px";
 });
