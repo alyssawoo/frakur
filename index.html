@@ -5,83 +5,72 @@
 <title>Fraktur Widget</title>
 
 <style>
-body {
+html, body {
   margin: 0;
-  padding: 0;
+  padding: 8px;
   background: transparent;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
+  color: #37352f;
 }
 
-.card {
+.container {
   width: 100%;
-  max-width: 420px;
-  background: #ffffff;
-  border-radius: 16px;
-  box-shadow: 0 8px 30px rgba(0,0,0,0.08);
-  padding: 24px;
   box-sizing: border-box;
 }
 
 textarea {
   width: 100%;
-  height: 80px;
+  min-height: 80px;
   border: 1px solid #e5e5e5;
-  border-radius: 12px;
-  padding: 12px;
+  border-radius: 8px;
+  padding: 10px;
   font-size: 14px;
-  resize: none;
+  resize: vertical; /* KEY for Notion resizing */
   outline: none;
-  transition: border 0.2s ease;
+  background: transparent;
+  color: #37352f;
+  box-sizing: border-box;
+}
+
+textarea::placeholder {
+  color: #9b9a97;
 }
 
 textarea:focus {
-  border-color: #cfcfcf;
+  border-color: #d4d4d4;
 }
 
 .output {
-  margin-top: 16px;
+  margin-top: 12px;
   font-size: 18px;
   line-height: 1.5;
   word-wrap: break-word;
-  min-height: 30px;
-}
-
-.button-row {
-  margin-top: 12px;
-  display: flex;
-  justify-content: flex-end;
+  min-height: 24px;
 }
 
 button {
-  background: #f5f5f5;
-  border: none;
-  border-radius: 10px;
-  padding: 6px 12px;
+  margin-top: 10px;
+  background: transparent;
+  border: 1px solid #e5e5e5;
+  border-radius: 6px;
+  padding: 4px 10px;
   font-size: 12px;
   cursor: pointer;
-  transition: background 0.2s ease;
+  color: #37352f;
 }
 
 button:hover {
-  background: #eaeaea;
+  border-color: #d4d4d4;
 }
 </style>
 </head>
 
 <body>
 
-<div class="card">
+<div class="container">
   <textarea id="inputText" placeholder="Type something..."></textarea>
-
   <div class="output" id="outputText"></div>
-
-  <div class="button-row">
-    <button onclick="copyText()">Copy</button>
-  </div>
+  <button onclick="copyText()">Copy</button>
 </div>
 
 <script>
