@@ -7,32 +7,32 @@
 <style>
 body {
   margin: 0;
-  padding: 12px;
+  padding: 0;
   background: transparent;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
-  color: #37352f; /* Notion light mode text color */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
 .container {
   width: 100%;
   max-width: 420px;
+  padding: 16px;
+  box-sizing: border-box;
 }
 
 textarea {
   width: 100%;
   height: 80px;
   border: 1px solid #e5e5e5;
-  border-radius: 8px;
+  border-radius: 10px;
   padding: 10px;
   font-size: 14px;
   resize: none;
   outline: none;
   background: transparent;
-  color: #37352f;
-}
-
-textarea::placeholder {
-  color: #9b9a97;
 }
 
 textarea:focus {
@@ -40,21 +40,26 @@ textarea:focus {
 }
 
 .output {
-  margin-top: 12px;
+  margin-top: 14px;
   font-size: 18px;
   line-height: 1.5;
+  word-wrap: break-word;
   min-height: 24px;
 }
 
-button {
+.button-row {
   margin-top: 10px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+button {
   background: transparent;
   border: 1px solid #e5e5e5;
-  border-radius: 6px;
-  padding: 4px 10px;
+  border-radius: 8px;
+  padding: 5px 10px;
   font-size: 12px;
   cursor: pointer;
-  color: #37352f;
 }
 
 button:hover {
@@ -68,7 +73,9 @@ button:hover {
 <div class="container">
   <textarea id="inputText" placeholder="Type something..."></textarea>
   <div class="output" id="outputText"></div>
-  <button onclick="copyText()">Copy</button>
+  <div class="button-row">
+    <button onclick="copyText()">Copy</button>
+  </div>
 </div>
 
 <script>
