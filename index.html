@@ -7,28 +7,28 @@
 <style>
 html, body {
   margin: 0;
-  padding: 8px;
+  padding: 2px;
   background: transparent;
   font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont,
                "Segoe UI", Helvetica, "Apple Color Emoji",
                Arial, sans-serif;
   color: #37352f;
-  font-size: 14px;
+  font-size: 9px;
 }
 
 .container {
-  width: 100%;
+  width: 70%;
   box-sizing: border-box;
 }
 
 textarea {
-  width: 100%;
-  min-height: 60px;
+  width: 70%;
+  min-height: 36px; /* smaller */
   border: 1px solid #e5e5e5;
-  border-radius: 8px;
-  padding: 10px;
-  font-size: 14px;
-  line-height: 1.5;
+  border-radius: 6px; /* more Notion-like */
+  padding: 6px 8px; /* tighter padding */
+  font-size: 13px;
+  line-height: 1.4;
   resize: none;
   outline: none;
   background: transparent;
@@ -47,9 +47,9 @@ textarea:focus {
 }
 
 .output {
-  margin-top: 12px;
-  font-size: 16px;
-  line-height: 1.6;
+  margin-top: 8px;
+  font-size: 15px;
+  line-height: 1.5;
   word-wrap: break-word;
 }
 </style>
@@ -58,7 +58,7 @@ textarea:focus {
 <body>
 
 <div class="container">
-  <textarea id="inputText" placeholder="Type something..."></textarea>
+  <textarea id="inputText" placeholder="Type..."></textarea>
   <div class="output" id="outputText"></div>
 </div>
 
@@ -86,7 +86,7 @@ function convertToFraktur(text) {
 input.addEventListener("input", () => {
   output.textContent = convertToFraktur(input.value);
 
-  // Auto-grow textarea
+  // Auto-grow
   input.style.height = "auto";
   input.style.height = input.scrollHeight + "px";
 });
@@ -94,4 +94,3 @@ input.addEventListener("input", () => {
 
 </body>
 </html>
-
