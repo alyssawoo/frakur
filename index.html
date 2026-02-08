@@ -18,50 +18,52 @@ html, body {
 
 .container {
   display: flex;
-  gap: 20px;
+  gap: 16px;
   width: 100%;
   box-sizing: border-box;
   align-items: flex-start;
 }
 
-/* Stack vertically when narrow */
+/* Stack vertically on small widths */
 @media (max-width: 500px) {
   .container {
     flex-direction: column;
   }
 }
 
+/* Minimal input box */
 textarea {
   flex: 1;
-  min-height: 36px;
-  border: 1px solid #e5e5e5;
-  border-radius: 6px;
-  padding: 6px 8px;
+  min-height: 28px;
+  border: none;
+  border-radius: 4px;
+  padding: 4px 6px;
   font-size: 13px;
   line-height: 1.4;
   resize: none;
   outline: none;
-  background: transparent;
+  background: #f5f5f5;
   color: #37352f;
   box-sizing: border-box;
   overflow: hidden;
   font-family: inherit;
 }
 
+/* Optional subtle placeholder */
 textarea::placeholder {
   color: #9b9a97;
 }
 
-textarea:focus {
-  border-color: #d4d4d4;
-}
-
+/* Fraktur output box - the only visible “box” */
 .output {
   flex: 1;
   font-size: 16px;
   line-height: 1.6;
   word-wrap: break-word;
-  padding-top: 6px; /* aligns visually with textarea text */
+  padding: 8px 12px;
+  border: 1px solid #e5e5e5;
+  border-radius: 8px;
+  background: #ffffff;
 }
 </style>
 </head>
@@ -69,7 +71,7 @@ textarea:focus {
 <body>
 
 <div class="container">
-  <textarea id="inputText" placeholder="Type..."></textarea>
+  <textarea id="inputText" placeholder="Type here..."></textarea>
   <div class="output" id="outputText"></div>
 </div>
 
@@ -97,7 +99,7 @@ function convertToFraktur(text) {
 input.addEventListener("input", () => {
   output.textContent = convertToFraktur(input.value);
 
-  // Auto-grow input height
+  // Auto-grow input box
   input.style.height = "auto";
   input.style.height = input.scrollHeight + "px";
 });
